@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+.hero {
+    background: #f8f9fa;
+    padding: 60px 0;
+    text-align: left;
+}
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+.intro-excerpt p {
+    font-size: 18px;
+    color: #6c757d;
+}
+.btn-outline-black {
+    color: #fff !important;
+}
+
+.untree_co-section {
+    padding: 60px 0;
+}
+.site-blocks-table {
+    overflow-x: auto;
+}
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.table td, .table th {
+    vertical-align: middle;
+}
+.product-thumbnail img {
+    width: 100px;
+    height: auto;
+}
+.product-name h2 {
+    font-size: 18px;
+    margin: 0;
+}
+.product-price, .product-total {
+    font-size: 16px;
+    font-weight: bold;
+}
+.product-remove .btn {
+    color: #fff;
+    background-color: #343a40;
+    border: none;
+}
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+.quantity-container .btn {
+    font-size: 16px;
+}
+.quantity-amount {
+    width: 40px;
+    text-align: center;
+}
+
+.btn-black {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.btn-outline-black {
+    color: #343a40;
+    border-color: #343a40;
+}
+.btn-outline-black:hover {
+    color: #fff;
+    background-color: #343a40;
+}
+
+.before-footer-section {
+    margin-bottom: 60px;
+}
+
+.row .col-md-12.text-right.border-bottom.mb-5 {
+    border-bottom: 1px solid #dee2e6 !important;
+}
+
+.text-black {
+    color: #000;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+</style>
+<div class="container mt-4">
+    <h2>Your Shopping Cart</h2>
+    {% if cart_items %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td>
+                    <img src="{{ item.product.image_file.url }}" class="img-fluid product-thumbnail" alt="Product Image" style="width: 50px; height: auto;">
+                    {{ item.product.product_name }}
+                </td>
+                <td>${{ item.product.price }}</td>
+                <td>
+                    <form action="{% url 'update_cart' item.id %}" method="POST">
+                        {% csrf_token %}
+                        <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                    </form>
+                </td>
+                <td>${{ item.total_price }}</td>
+                <td>
+                    <form action="{% url 'remove_from_cart' item.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-right">
+        <strong>Total: ${{ total_price }}</strong>
+    </div>
+    <a href="{% url 'checkout' %}" class="btn btn-success">Proceed to Checkout</a>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}

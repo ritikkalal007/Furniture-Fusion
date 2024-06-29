@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+  font-family: sans-serif;
+  background-color: #f5f5f5; /* Light background color */
+}
+
+.container {
+  padding: 30px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute products evenly */
+  margin-right: -15px; /* Remove horizontal margin from elements */
+  margin-left: -15px; /* Remove horizontal margin from elements */
+}
+
+.col-12,
+.col-md-4,
+.col-lg-3 {
+  padding-right: 15px; /* Add horizontal padding to elements */
+  padding-left: 15px; /* Add horizontal padding to elements */
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+
+.product-thumbnail {
+  width: 100%;
+  height: 200px; /* Adjust height as needed for your images */
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+}
+
+.product-title {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  border-radius: 5px;
+  padding: 8px 20px;
+}
+
+.btn-primary:hover {
+  background-color: #3e8e41;
+}
+
+</style>
+<div class="container mt-4">
+    <h2>Product List</h2>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-12 col-md-4 col-lg-3 mb-5">
+            <div class="product-item">
+                <img src="{{ product.image_file.url }}" class="img-fluid product-thumbnail" alt="Product Image">
+                <h3 class="product-title">Product: {{ product.product_name }}</h3>
+                <strong class="product-price">Product Price: ${{ product.price }}</strong>
+                
+                <!-- Add to Cart Form -->
+                <form action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary mt-2">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

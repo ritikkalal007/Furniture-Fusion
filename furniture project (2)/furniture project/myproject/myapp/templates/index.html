@@ -1,0 +1,613 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+	/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+    background: #f8f9fa;
+}
+
+.hero .intro-excerpt h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero .intro-excerpt p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.hero .btn {
+    padding: 10px 20px;
+}
+
+/* Product Section */
+.product-section {
+    padding: 50px 0;
+}
+
+.product-item {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.product-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-thumbnail {
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
+.product-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #6c757d;
+}
+
+.icon-cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Why Choose Us Section */
+.why-choose-section {
+    padding: 50px 0;
+    background: #f8f9fa;
+}
+
+.why-choose-section .section-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.feature {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature .icon img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 16px;
+}
+
+/* We Help Section */
+.we-help-section {
+    padding: 50px 0;
+}
+
+.we-help-section .section-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.imgs-grid {
+    display: flex;
+    gap: 10px;
+}
+
+.imgs-grid .grid img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Popular Product Section */
+.popular-product {
+    padding: 50px 0;
+    background: #f8f9fa;
+}
+
+.product-item-sm {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.product-item-sm:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail img {
+    max-width: 100px;
+    margin-right: 20px;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    padding: 50px 0;
+    background: #f8f9fa;
+}
+
+.testimonial-slider-wrap {
+    position: relative;
+}
+
+.testimonial-slider .item {
+    padding: 30px;
+    border: 1px solid #ddd;
+    background: #fff;
+    margin: 10px;
+}
+
+.testimonial-block {
+    text-align: center;
+}
+
+.testimonial-block blockquote {
+    font-size: 16px;
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.author-info {
+    text-align: center;
+}
+
+.author-pic img {
+    width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.author-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.author-info .position {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+/* Blog Section */
+.blog-section {
+    padding: 50px 0;
+}
+
+.blog-section .section-title {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+.post-entry {
+    border: 1px solid #ddd;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.post-entry:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-thumbnail img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.post-content-entry h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post-content-entry .meta {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.meta a {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.meta a:hover {
+    text-decoration: underline;
+}
+.icon-cross {
+  top: 370px !important;
+}
+
+
+/* Why Choose Us Section */
+.why-choose-section {
+  padding: 60px 0;
+}
+
+.why-choose-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.why-choose-section p {
+  font-size: 1.1rem;
+}
+
+.feature {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.feature .icon img {
+  width: 50px;
+  height: 50px;
+}
+
+.feature h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.feature p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Our Team Section */
+.untree_co-section {
+  padding: 60px 0;
+}
+
+.untree_co-section .section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.untree_co-section h3 a {
+  color: #333;
+  text-decoration: none;
+}
+
+.untree_co-section h3 a:hover {
+  text-decoration: underline;
+}
+
+.untree_co-section .position {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6c757d;
+}
+
+.untree_co-section p {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.untree_co-section .more {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff;
+}
+
+.untree_co-section .more:hover {
+  text-decoration: underline;
+}
+</style>
+
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Beyond Style, Beyond Function:<span clsas="d-block"> Furniture Fusion</span></h1>
+								<p class="mb-4"> Discover unique furniture that blends comfort and style for your home.</p>
+								<p><a href="{% url 'shop' %}" class="btn btn-secondary me-2">Shop Now</a><a href="{% url 'about' %}" class="btn btn-white-outline">Explore</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="/static/images/couch.png" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+
+		<!-- Start Product Section -->
+		<div class="product-section">
+			<div class="container">
+				<div class="row">
+
+					<!-- Start Column 1 -->
+					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+						<h2 class="mb-4 section-title">The Furniture Fusion Story.</h2>
+						<p class="mb-4">At Furniture Fusion, we believe your home should be a reflection of your unique style. That's why we curate a collection of furniture that blends timeless comfort with modern design elements. We source high-quality pieces that seamlessly fuse together to create a space that's both beautiful and functional. Our passion lies in helping you discover furniture that inspires and reflects your personality. </p>
+						<p><a href="{% url 'about' %}" class="btn">Explore</a></p>
+					</div> 
+					<!-- End Column 1 -->
+
+					<!-- Start Column 2 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="/static/images/product-1.png" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Nordic Chair</h3>
+							<strong class="product-price">$50.00</strong>
+
+							<span class="icon-cross">
+								<img src="/static/images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div> 
+					<!-- End Column 2 -->
+
+					<!-- Start Column 3 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="/static/images/product-2.png" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Kruzo Aero Chair</h3>
+							<strong class="product-price">$78.00</strong>
+
+							<span class="icon-cross">
+								<img src="/static/images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 3 -->
+
+					<!-- Start Column 4 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="/static/images/product-3.png" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Ergonomic Chair</h3>
+							<strong class="product-price">$43.00</strong>
+
+							<span class="icon-cross">
+								<img src="/static/images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 4 -->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Product Section -->
+
+		<!-- Start Why Choose Us Section -->
+		<!-- <div class="why-choose-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-6">
+						<h2 class="section-title">Why Choose Us</h2>
+						<h4> Where Beauty Meets Comfort: The Furniture Fusion Difference</h4>
+						<p> We believe furniture should be as comfortable as it is stylish. Our pieces are carefully selected for both functionality and aesthetics, ensuring your home is a haven of comfort and visual delight.</p>
+
+						<div class="row my-5">
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/static/images/truck.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Fast &amp; Free Shipping</h3>
+									<p> Get your dream furniture delivered quickly and conveniently, at no extra cost.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/static/images/bag.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Easy to Shop</h3>
+									<p>Our user-friendly website makes browsing and buying a breeze. Find what you love in just a few clicks.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/static/images/support.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>24/7 Support</h3>
+									<p>Our dedicated customer service team is always here to answer your questions and help you find the perfect furniture.</p>
+								</div>
+							</div>
+
+							<div class="col-6 col-md-6">
+								<div class="feature">
+									<div class="icon">
+										<img src="/static/images/return.svg" alt="Image" class="imf-fluid">
+									</div>
+									<h3>Hassle Free Returns</h3>
+									<p>We understand that sometimes things don't work out. Enjoy a smooth and stress-free return process if needed.</p>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<div class="img-wrap">
+							<img src="/static/images/why-choose-us-img.jpg" alt="Image" class="img-fluid">
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div> -->
+		<!-- End Why Choose Us Section -->
+
+			<!-- Start Why Choose Us Section -->
+			<div class="why-choose-section">
+				<div class="container">
+					<div class="row justify-content-between align-items-center">
+						<div class="col-lg-6">
+							<h2 class="section-title">Why Choose Us</h2>
+						<p> We believe furniture should be as comfortable as it is stylish. Our pieces are carefully selected for both functionality and aesthetics, ensuring your home is a haven of comfort and visual delight.</p>
+
+	
+							<div class="row my-5">
+								<div class="col-6 col-md-6">
+									<div class="feature">
+										<div class="icon">
+											<img src="/static/images/truck.svg" alt="Image" class="imf-fluid">
+										</div>
+										<h3>Fast &amp; Free Shipping</h3>
+										<p>Get your dream furniture delivered quickly and conveniently, at no extra cost. </p>
+									</div>
+								</div>
+	
+								<div class="col-6 col-md-6">
+									<div class="feature">
+										<div class="icon">
+											<img src="/static/images/bag.svg" alt="Image" class="imf-fluid">
+										</div>
+										<h3>Easy to Shop</h3>
+										<p> Our user-friendly website makes browsing and buying a breeze. Find what you love in just a few clicks.</p>
+									</div>
+								</div>
+	
+								<div class="col-6 col-md-6">
+									<div class="feature">
+										<div class="icon">
+											<img src="/static/images/support.svg" alt="Image" class="imf-fluid">
+										</div>
+										<h3>24/7 Support</h3>
+										<p>Our dedicated customer service team is always here to answer your questions and help you find the perfect furniture.</p>
+									</div>
+								</div>
+	
+								<div class="col-6 col-md-6">
+									<div class="feature">
+										<div class="icon">
+											<img src="/static/images/return.svg" alt="Image" class="imf-fluid">
+										</div>
+										<h3>Hassle Free Returns</h3>
+										<p>We understand that sometimes things don't work out. Enjoy a smooth and stress-free return process if needed.</p>
+									</div>
+								</div>
+	
+							</div>
+						</div>
+	
+						<div class="col-lg-5">
+							<div class="img-wrap">
+								<img src="/static/images/why-choose-us-img.jpg" alt="Image" class="img-fluid">
+							</div>
+						</div>
+	
+					</div>
+				</div>
+			</div>
+			<!-- End Why Choose Us Section -->
+
+		<!-- Start We Help Section -->
+		<div class="we-help-section">
+			<div class="container">
+				<div class="row justify-content-between">
+					<div class="col-lg-7 mb-5 mb-lg-0">
+						<div class="imgs-grid">
+							<div class="grid grid-1"><img src="/static/images/img-grid-1.jpg" alt="Untree.co"></div>
+							<div class="grid grid-2"><img src="/static/images/img-grid-2.jpg" alt="Untree.co"></div>
+							<div class="grid grid-3"><img src="/static/images/img-grid-3.jpg" alt="Untree.co"></div>
+						</div>
+					</div>
+					<div class="col-lg-5 ps-lg-5">
+						<h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
+						<p>At Furniture Fusion, we understand the allure of a modern interior. It's about creating a space that's both stylish and functional, reflecting your unique personality. But achieving that perfect modern aesthetic can feel daunting.  That's where we come in!
+</p>
+							Here's how Furniture Fusion empowers you to create your dream modern interior:</p>
+
+						<ul class="list-unstyled custom-list my-4">
+							<li>Modern Design Simplified: Curated pieces, mix & match magic, expert guidance - All for your dream space.</li>
+							<li>Effortless Modern Style: Shop curated furniture, mix styles with ease, get expert help & fast shipping. </li>
+							<li>Modern Made Easy: Discover curated collections, mix & match for a personal touch, get expert advice & fast delivery.</li>
+							<li>Crafted for Modern Living: High-quality furniture built to last, perfectly suited for your modern space. </li>
+						</ul>
+						<p><a herf="{% url 'shop' %}" class="btn">Explore</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End We Help Section -->
+
+		<!-- Start Popular Product -->
+		<div class="popular-product">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+						<div class="product-item-sm d-flex">
+							<div class="thumbnail">
+								<img src="/static/images/product-1.png" alt="Image" class="img-fluid">
+							</div>
+							<div class="pt-3">
+								<h3>Nordic Chair</h3>
+								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
+								<p><a href="#">Read More</a></p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+						<div class="product-item-sm d-flex">
+							<div class="thumbnail">
+								<img src="/static/images/product-2.png" alt="Image" class="img-fluid">
+							</div>
+							<div class="pt-3">
+								<h3>Kruzo Aero Chair</h3>
+								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
+								<p><a href="#">Read More</a></p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+						<div class="product-item-sm d-flex">
+							<div class="thumbnail">
+								<img src="/static/images/product-3.png" alt="Image" class="img-fluid">
+							</div>
+							<div class="pt-3">
+								<h3>Ergonomic Chair</h3>
+								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
+								<p><a href="#">Read More</a></p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- End Popular Product -->
+
+	
+
+		
+		<!-- Start Footer Section -->
+	
+
+{% endblock %}

@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+<style>
+	/* Hero Section */
+.hero {
+  background-color: #f8f9fa;
+  padding: 100px 0;
+}
+
+.hero .intro-excerpt h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.hero .intro-excerpt p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.hero .intro-excerpt .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.hero .hero-img-wrap img {
+  width: 100%;
+  height: auto;
+}
+.hero .intro-excerpt p {
+    color: #2f2f2f !important;
+}
+
+/* Why Choose Us Section */
+.why-choose-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.why-choose-section .feature {
+  text-align: center;
+  padding: 20px;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.why-choose-section .feature:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.why-choose-section .feature .icon img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.why-choose-section .feature h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.why-choose-section .feature p {
+  font-size: 1rem;
+  color: #777;
+}
+
+/* Product Section */
+.product-section {
+  padding: 60px 0;
+}
+
+.product-section .product-item {
+  display: block;
+  text-align: center;
+  color: #333;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-section .product-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-section .product-thumbnail {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.product-section .product-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-section .product-price {
+  font-size: 1.1rem;
+  color: #007bff;
+}
+
+.product-section .icon-cross img {
+  width: 20px;
+  height: auto;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+}
+
+.testimonial-section .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.testimonial-section .testimonial-slider-wrap {
+  position: relative;
+}
+
+.testimonial-section .testimonial-slider {
+  display: flex;
+  overflow: hidden;
+}
+
+.testimonial-section .testimonial-slider .item {
+  min-width: 100%;
+  transition: transform 0.5s ease;
+}
+
+
+</style>
+		<!-- Start Hero Section -->
+			<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Services</h1>
+								<p class="mb-4">Furniture Fusion empowers you to create your dream modern space with a curated selection of furniture that seamlessly blends. Mix and match styles with ease, get expert guidance from our design consultants, and enjoy fast and free shipping to bring your vision to life. </p>
+								<p><a href="{% url 'shop' %}" class="btn btn-secondary me-2">Shop Now</a><a href="{% url 'about' %}" class="btn btn-white-outline">Explore</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="/static/images/couch.png" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!-- End Hero Section -->
+
+		
+
+		<!-- Start Why Choose Us Section -->
+		<div class="why-choose-section">
+			<div class="container">
+				
+				
+				<div class="row my-5">
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="/static/images/truck.svg" alt="Image" class="imf-fluid">
+							</div>
+							<h3>Fast &amp; Free Shipping</h3>
+							<p>Create your dream modern space! Furniture Fusion curates comfy, stylish pieces for effortless mixing & matching.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="/static/images/bag.svg" alt="Image" class="imf-fluid">
+							</div>
+							<h3>Easy to Shop</h3>
+							<p>Our user-friendly website makes browsing and buying a breeze. Find what you love in just a few clicks.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="/static/images/support.svg" alt="Image" class="imf-fluid">
+							</div>
+							<h3>24/7 Support</h3>
+							<p> Our dedicated customer service team is always here to answer your questions and help you find the perfect furniture.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="/static/images/return.svg" alt="Image" class="imf-fluid">
+							</div>
+							<h3>Hassle Free Returns</h3>
+							<p>We understand that sometimes things don't work out. Enjoy a smooth and stress-free return process if needed.</p>
+						</div>
+					</div>
+
+				
+			</div>
+		</div>
+		<!-- End Why Choose Us Section -->
+
+		<!-- Start Product Section -->
+		<div class="product-section">
+			<div class="container">
+				<div class="row">
+
+					<!-- Start Column 1 -->
+					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+						<h2 class="mb-4 section-title">The Furniture Fusion Story.</h2>
+						<p class="mb-4">At Furniture Fusion, we believe your home should be a reflection of your unique style. That's why we curate a collection of furniture that blends timeless comfort with modern design elements. We source high-quality pieces that seamlessly fuse together to create a space that's both beautiful and functional. Our passion lies in helping you discover furniture that inspires and reflects your personality. </p>
+						<p><a href="{% url 'about' %}" class="btn">Explore</a></p>
+					</div> 
+					<!-- End Column 1 -->
+
+					<!-- Start Column 2 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="/static/images/product-1.png" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Nordic Chair</h3>
+							<strong class="product-price">$50.00</strong>
+
+							<span class="icon-cross">
+								<img src="/static/images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div> 
+					<!-- End Column 2 -->
+
+					<!-- Start Column 3 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="/static/images/product-2.png" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Kruzo Aero Chair</h3>
+							<strong class="product-price">$78.00</strong>
+
+							<span class="icon-cross">
+								<img src="/static/images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 3 -->
+
+					<!-- Start Column 4 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="cart.html">
+							<img src="/static/images/product-3.png" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Ergonomic Chair</h3>
+							<strong class="product-price">$43.00</strong>
+
+							<span class="icon-cross">
+								<img src="/static/images/cross.svg" class="img-fluid">
+							</span>
+						</a>
+					</div>
+					<!-- End Column 4 -->
+
+				</div>
+			</div>
+		</div>
+		<!-- End Product Section -->
+
+		
+
+	
+{% endblock %}

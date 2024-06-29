@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Product Added to Cart</h2>
+    <p>The product has been successfully added to your cart.</p>
+    <a href="{% url 'cart' %}" class="btn btn-primary">View Cart</a>
+</div>
+{% endblock %}
